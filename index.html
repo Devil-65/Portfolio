@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Chandan Raj | Freelance Web Developer</title>
+
+  <meta name="description"
+    content="Chandan Raj - Freelance Web Developer building modern, responsive and user-friendly websites.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --bg: #07111f;
+      --bg-light: #0b1728;
+      --card: #0f2035;
+      --border: #20344c;
+      --primary: #38bdf8;
+      --text: #ffffff;
+      --muted: #94a3b8;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.10), transparent 28%),
+        radial-gradient(circle at 85% 35%, rgba(59, 130, 246, 0.08), transparent 30%),
+        linear-gradient(135deg, #07111f 0%, #081827 48%, #050b14 100%);
+      background-attachment: fixed;
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Premium ambient background */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -2;
+      background-image:
+        linear-gradient(rgba(56, 189, 248, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56, 189, 248, 0.025) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent 92%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      width: 520px;
+      height: 520px;
+      top: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: -1;
+      background: rgba(56, 189, 248, 0.10);
+      filter: blur(110px);
+      animation: ambientGlow 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes ambientGlow {
+      from {
+        transform: translateX(-55%) translateY(-20px) scale(0.9);
+        opacity: 0.55;
+      }
+
+      to {
+        transform: translateX(-45%) translateY(45px) scale(1.12);
+        opacity: 0.9;
+      }
+    }
+
+    /* NAVIGATION */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding: 18px 8%;
+
+      background: rgba(7, 17, 31, 0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      padding: 110px 20px 50px;
+
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 12%, rgba(18, 61, 101, 0.92) 0%, rgba(7, 17, 31, 0.35) 34%, transparent 62%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: min(760px, 90vw);
+      height: min(760px, 90vw);
+      border: 1px solid rgba(56, 189, 248, 0.10);
+      border-radius: 50%;
+      box-shadow:
+        0 0 90px rgba(56, 189, 248, 0.06),
+        inset 0 0 90px rgba(56, 189, 248, 0.04);
+      pointer-events: none;
+      animation: heroPulse 7s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroPulse {
+      from {
+        transform: scale(0.92);
+        opacity: 0.45;
+      }
+
+      to {
+        transform: scale(1.06);
+        opacity: 0.9;
+      }
+    }
+
+    .hero-content {
+      max-width: 900px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .available {
+      display: inline-block;
+
+      padding: 7px 15px;
+      margin-bottom: 22px;
+
+      color: #7dd3fc;
+      background: rgba(56, 189, 248, 0.1);
+
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 30px;
+
+      font-size: 14px;
+    }
+
+    .hero-small {
+      color: var(--primary);
+      font-size: 19px;
+      margin-bottom: 5px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 82px);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero h2 {
+      font-size: clamp(24px, 4vw, 40px);
+      color: #cbd5e1;
+      margin-bottom: 22px;
+    }
+
+    .hero-description {
+      max-width: 720px;
+      margin: auto;
+
+      font-size: 18px;
+      color: var(--muted);
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+
+      margin-top: 35px;
+    }
+
+    .btn {
+      display: inline-block;
+
+      padding: 13px 27px;
+
+      border-radius: 9px;
+
+      font-weight: 700;
+      text-decoration: none;
+
+      transition: 0.3s;
+    }
+
+    .primary {
+      color: #04111c;
+      background: var(--primary);
+    }
+
+    .primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(56, 189, 248, 0.25);
+    }
+
+    .secondary {
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    .secondary:hover {
+      color: #04111c;
+      background: var(--primary);
+    }
+
+    /* GENERAL */
+
+    section {
+      padding: 95px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(32px, 5vw, 42px);
+      margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+      max-width: 650px;
+      margin: 0 auto 50px;
+
+      text-align: center;
+      color: var(--muted);
+    }
+
+    /* ABOUT */
+
+    .about-content {
+      max-width: 850px;
+      margin: auto;
+
+      text-align: center;
+
+      color: #cbd5e1;
+      font-size: 18px;
+    }
+
+    /* SKILLS */
+
+    .skills-section {
+      background: rgba(11, 23, 40, 0.68);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(255, 255, 255, 0.035);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.035);
+    }
+
+    .skill-grid {
+      max-width: 950px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      padding: 32px 20px;
+
+      text-align: center;
+
+      background: rgba(15, 32, 53, 0.82);
+
+      border: 1px solid var(--border);
+      border-radius: 14px;
+
+      transition: 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--primary);
+    }
+
+    .skill-icon {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .skill-card h3 {
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* SERVICES */
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      padding: 35px 26px;
+
+      background: rgba(15, 32, 53, 0.82);
+
+      border: 1px solid var(--border);
+      border-radius: 14px;
+
+      transition: 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+    }
+
+    .service-number {
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .service-card h3 {
+      margin: 12px 0;
+      font-size: 23px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+    }
+
+    /* PROJECTS */
+
+    .projects-section {
+      background: rgba(11, 23, 40, 0.68);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(255, 255, 255, 0.035);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.035);
+    }
+
+    .project-grid {
+      max-width: 1050px;
+      margin: auto;
+
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      overflow: hidden;
+
+      background: rgba(15, 32, 53, 0.82);
+
+      border: 1px solid var(--border);
+      border-radius: 15px;
+
+      transition: 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--primary);
+    }
+
+    .project-preview {
+      height: 220px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background:
+        linear-gradient(135deg,
+          #123d65,
+          #0b1b2e);
+
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .project-info {
+      padding: 28px;
+    }
+
+    .project-label {
+      color: var(--primary);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .project-info h3 {
+      font-size: 25px;
+      margin: 8px 0 10px;
+    }
+
+    .project-info p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      margin-bottom: 22px;
+    }
+
+    .tech span {
+      padding: 5px 10px;
+
+      background: rgba(56, 189, 248, 0.08);
+
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 20px;
+
+      color: #7dd3fc;
+      font-size: 12px;
+    }
+
+    .project-buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .small-btn {
+      padding: 9px 16px;
+
+      border-radius: 7px;
+
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+
+      transition: 0.3s;
+    }
+
+    /* CONTACT */
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact-box {
+      max-width: 780px;
+      margin: auto;
+
+      padding: 55px 30px;
+
+      background:
+        linear-gradient(135deg,
+          rgba(56, 189, 248, 0.08),
+          rgba(15, 32, 53, 1));
+
+      border: 1px solid var(--border);
+      border-radius: 18px;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(30px, 5vw, 43px);
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      max-width: 600px;
+      margin: 0 auto 28px;
+
+      color: var(--muted);
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 28px 20px;
+
+      text-align: center;
+
+      color: #64748b;
+
+      border-top: 1px solid #1d2a3d;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+
+    @media (prefers-reduced-motion: reduce) {
+
+      body::after,
+      .hero::before {
+        animation: none;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 700px) {
+
+      nav {
+        padding: 16px 5%;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
+
+      nav ul {
+        gap: 13px;
+        font-size: 13px;
+      }
+
+      nav ul li:nth-child(2) {
+        display: none;
+      }
+
+      section {
+        padding: 75px 6%;
+      }
+
+      .hero-description {
+        font-size: 16px;
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-box {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">CR.</div>
+
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="available">
+        ● Available for freelance projects
+      </div>
+
+      <p class="hero-small">
+        Hello, I'm
+      </p>
+
+      <h1>
+        Chandan <span>Raj</span>
+      </h1>
+
+      <h2>
+        Freelance Web Developer
+      </h2>
+
+      <p class="hero-description">
+        I build modern, responsive and user-friendly websites
+        that help individuals and businesses create a strong
+        online presence.
+      </p>
+
+      <div class="buttons">
+
+        <a href="#projects" class="btn primary">
+          View My Work
+        </a>
+
+        <a href="mailto:rajchandan10347@gmail.com" class="btn secondary">
+          Hire Me
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h2 class="section-title">
+      About Me
+    </h2>
+
+    <p class="section-subtitle">
+      Building clean and useful experiences for the web.
+    </p>
+
+    <div class="about-content">
+
+      <p>
+        I'm Chandan Raj, a web developer focused on creating
+        modern, responsive and easy-to-use websites.
+
+        I enjoy turning ideas into functional web experiences
+        using HTML, CSS and JavaScript.
+
+        My goal is to help individuals, creators and businesses
+        establish a professional online presence with websites
+        that work smoothly across desktop and mobile devices.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- SKILLS -->
+
+  <section id="skills" class="skills-section">
+
+    <h2 class="section-title">
+      My Skills
+    </h2>
+
+    <p class="section-subtitle">
+      Core technologies I use to build websites.
+    </p>
+
+    <div class="skill-grid">
+
+      <div class="skill-card">
+
+        <div class="skill-icon">
+          &lt;/&gt;
+        </div>
+
+        <h3>
+          HTML5
+        </h3>
+
+        <p>
+          Semantic and well-structured web pages.
+        </p>
+
+      </div>
+
+
+      <div class="skill-card">
+
+        <div class="skill-icon">
+          #
+        </div>
+
+        <h3>
+          CSS3
+        </h3>
+
+        <p>
+          Modern layouts, styling and responsive designs.
+        </p>
+
+      </div>
+
+
+      <div class="skill-card">
+
+        <div class="skill-icon">
+          JS
+        </div>
+
+        <h3>
+          JavaScript
+        </h3>
+
+        <p>
+          Interactive and dynamic website functionality.
+        </p>
+
+      </div>
+
+
+      <div class="skill-card">
+
+        <div class="skill-icon">
+          ◫
+        </div>
+
+        <h3>
+          Responsive Design
+        </h3>
+
+        <p>
+          Websites optimized for mobile, tablet and desktop.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SERVICES -->
+
+  <section>
+
+    <h2 class="section-title">
+      What I Can Build
+    </h2>
+
+    <p class="section-subtitle">
+      Web solutions designed around your idea, brand or business.
+    </p>
+
+    <div class="service-grid">
+
+      <div class="service-card">
+
+        <span class="service-number">
+          01
+        </span>
+
+        <h3>
+          Business Websites
+        </h3>
+
+        <p>
+          Professional and responsive websites that showcase
+          your business, services and brand.
+        </p>
+
+      </div>
+
+
+      <div class="service-card">
+
+        <span class="service-number">
+          02
+        </span>
+
+        <h3>
+          Landing Pages
+        </h3>
+
+        <p>
+          Modern landing pages for products, startups,
+          campaigns and online services.
+        </p>
+
+      </div>
+
+
+      <div class="service-card">
+
+        <span class="service-number">
+          03
+        </span>
+
+        <h3>
+          Portfolio Websites
+        </h3>
+
+        <p>
+          Personal portfolio websites for freelancers,
+          developers, creators and professionals.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROJECTS -->
+
+  <section id="projects" class="projects-section">
+
+    <h2 class="section-title">
+      Featured Work
+    </h2>
+
+    <p class="section-subtitle">
+      A selection of websites and web projects I've built.
+    </p>
+
+    <div class="project-grid">
+
+
+      <!-- WORD BOOK PROJECT -->
+
+      <div class="project-card">
+
+        <div class="project-preview">
+          WORD BOOK
+        </div>
+
+        <div class="project-info">
+
+          <span class="project-label">
+            Featured Project
+          </span>
+
+          <h3>
+            Word Book
+          </h3>
+
+          <p>
+            A web-based Word Book application designed to help
+            users search and explore English words in a simple
+            and user-friendly interface.
+          </p>
+
+          <div class="tech">
+
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+            <span>Responsive</span>
+
+          </div>
+
+          <div class="project-buttons">
+
+            <a href="https://github.com/Devil-65/MY-wordbook" target="_blank" rel="noopener noreferrer"
+              class="small-btn secondary">
+              GitHub
+              >
+              Live Website ↗
+            </a>
+
+            <a href="https://github.com/Devil-65-git" 
+            target="_blank" rel="noopener noreferrer"
+              class="small-btn secondary">
+              GitHub
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- FUTURE PROJECT -->
+
+      <div class="project-card">
+
+        <div class="project-preview">
+          NEXT PROJECT
+        </div>
+
+        <div class="project-info">
+
+          <span class="project-label">
+            Coming Soon
+          </span>
+
+          <h3>
+            More Projects
+          </h3>
+
+          <p>
+            I'm continuously building new websites and
+            web development projects. More work will be
+            added here soon.
+          </p>
+
+          <div class="tech">
+
+            <span>Web Development</span>
+            <span>Responsive UI</span>
+
+          </div>
+
+          <div class="project-buttons">
+
+            <a href="https://github.com/Devil-65-git" target="_blank" rel="noopener noreferrer"
+              class="small-btn secondary">
+              View GitHub
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section id="contact" class="contact">
+
+    <div class="contact-box">
+
+      <h2>
+        Let's build something great.
+      </h2>
+
+      <p>
+        Need a website for your business, portfolio or idea?
+        I'm available for freelance web development projects.
+        Get in touch and let's discuss your project.
+      </p>
+
+      <div class="contact-links">
+
+        <a href="mailto:rajchandan10347@gmail.com" class="btn primary">
+          Email Me
+        </a>
+
+        <a href="https://github.com/Devil-65-git" target="_blank" rel="noopener noreferrer" class="btn secondary">
+          GitHub
+        </a>
+
+        <a href="https://t.me/chandan0914-tel" target="_blank" rel="noopener noreferrer" class="btn secondary">
+          Telegram
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 Chandan Raj ·
+      Built with HTML, CSS & JavaScript ·
+
+      <a href="https://github.com/Devil-65-git" target="_blank" rel="noopener noreferrer">
+        GitHub
+      </a>
+
+    </p>
+
+  </footer>
+
+</body>
+
+</html>
